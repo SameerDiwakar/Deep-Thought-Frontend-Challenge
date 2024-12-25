@@ -1,4 +1,3 @@
-// Asset data with unique sub-containers
 const assets = [
   {
     title: "Technical Project Management",
@@ -143,9 +142,8 @@ const assets = [
   },
 ];
 
-// Select the parent grid container
+
 const assetsContainer = document.querySelector(".assets");
-// Loop through the data and create each container
 assets.forEach((asset) => {
     const assetElement = document.createElement("div");
     assetElement.className =
@@ -162,4 +160,18 @@ assets.forEach((asset) => {
           </div>`
       ;
     assetsContainer.appendChild(assetElement);
+  });
+
+  const sidebar = document.getElementById("sidebar");
+  const toggleButton = document.getElementById("toggleButton");
+  const arrowIcon = document.getElementById("arrowIcon");
+
+  toggleButton.addEventListener("click", () => {
+      if (sidebar.classList.contains("collapsed")) {
+          sidebar.classList.remove("collapsed"); 
+          arrowIcon.textContent = "arrow_back";  
+        } else {
+            sidebar.classList.add("collapsed"); 
+            arrowIcon.textContent = "arrow_forward";
+      }
   });

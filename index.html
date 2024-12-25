@@ -7,6 +7,7 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -23,6 +24,25 @@
             <i class="material-icons p-1 text-blue-500 rounded-full">more_vert</i>
         </div>
     </nav>
+
+    <div id="sidebar" class="bg-white text-black w-72 shadow-md shadow-gray-200 rounded-lg rounded-l-none fixed top-[4rem] left-0 h-[80vh] transition-all duration-300 z-50 overflow-hidden">
+       <div class="bg-black w-full h-10">
+           <button id="toggleButton" class="mr-5 bg-white absolute top-[0.15rem] right-0 m-1 text-black font-bold rounded-full">
+               <i id="arrowIcon" class="material-icons text-sm font-bold px-1.5 my-1">arrow_forward</i>
+           </button>
+           <h2 class="sidebar-head font-semibold text-sm py-2 pl-4 mr-12 text-white bg-black">Journey Board</h2>
+       </div>
+        <div class="content mt-4 p-5">
+            <ul class="">
+                <li><a href="#" class="block hover:underline">Home</a></li>
+                <li><a href="#" class="block hover:underline">About</a></li>
+                <li><a href="#" class="block hover:underline">Services</a></li>
+                <li><a href="#" class="block hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+
     <div class="top mx-32 my-2">
         <div class="title flex justify-between p-1">
             <h1 class="text-[#0029FF] font-bold text-2xl">Technical Project Management</h1>

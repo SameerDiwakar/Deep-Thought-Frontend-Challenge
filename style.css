@@ -1,0 +1,10 @@
+/* Collapsed Sidebar */
+#sidebar.collapsed {
+    width: 100px; /* Collapsed width */
+    .content{
+        display: none;
+    }
+    .sidebar-head{
+        display: none;
+    }
+}
