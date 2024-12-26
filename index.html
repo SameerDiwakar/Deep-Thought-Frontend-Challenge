@@ -25,20 +25,22 @@
         </div>
     </nav>
 
-    <div id="sidebar" class="bg-white border-4 border-gray-200 text-black w-72 rounded-lg rounded-l-none absolute top-[4rem] left-0 h-[80vh] transition-all duration-300 z-50 overflow-hidden">
-       <div class="bg-black w-full h-10">
-           <button id="toggleButton" class="mr-5 bg-white absolute top-[0.15rem] right-0 m-1 text-black font-bold rounded-full">
-               <i id="arrowIcon" class="material-icons text-sm font-bold px-1.5 my-1">arrow_forward</i>
-           </button>
-           <h2 class="sidebar-head font-semibold text-sm py-2 pl-4 mr-12 text-white bg-black">Journey Board</h2>
-       </div>
+    <div id="sidebar"
+        class="bg-white border-4 border-gray-200 text-black w-72 rounded-lg rounded-l-none absolute top-[4rem] left-0 h-[80vh] transition-all duration-300 z-50 overflow-hidden">
+        <div class="bg-black w-full h-10">
+            <button id="toggleButton"
+                class="mr-5 bg-white absolute top-[0.15rem] right-0 m-1 text-black font-bold rounded-full">
+                <i id="arrowIcon" class="material-icons text-sm font-bold px-1.5 my-1">arrow_forward</i>
+            </button>
+            <h2 class="sidebar-head font-semibold text-sm py-2 pl-4 mr-12 text-white bg-black">Journey Board</h2>
+        </div>
         <div class="content mt-4 p-5">
             <ul class="list-disc ml-5">
-                <li><a href="#" class="block hover:underline font-bold mb-1">Home</a></li>
-                <li><a href="#" class="block hover:underline">Home</a></li>
-                <li><a href="#" class="block hover:underline">About</a></li>
-                <li><a href="#" class="block hover:underline">Services</a></li>
-                <li><a href="#" class="block hover:underline">Contact</a></li>
+                <li><a href="#" class="block hover:underline text-sm font-semibold mb-1 jb_title"></a></li>
+                <li class="jb"><a href="#" class="block hover:underline text-sm board_sub"></a></li>
+                <li class="jb"><a href="#" class="block hover:underline text-sm board_sub"></a></li>
+                <li class="jb"><a href="#" class="block hover:underline text-sm board_sub"></a></li>
+                <li class="jb"><a href="#" class="block hover:underline text-sm board_sub"></a></li>
             </ul>
         </div>
     </div>
@@ -50,15 +52,14 @@
             <button class="px-3 py-1 text-sm text-white rounded-2xl bg-[#0029FF]">Submit Task</button>
         </div>
         <div class="subtitle bg-[#F0F0F0] my-4 p-3 rounded-md">
-            <h2 class="font-bold text-lg">Explore the world of management</h2>
-            <p class="mt-2">As a project manager you play an important role in leading a project through
-                initiation,planning,exectution,monitoring,controlling and completion.How?
-                Do you want to manage each and every step of your life?
+            <h2 class="font-bold text-lg task_title"></h2>
+            <p class="mt-2 task_description">
             </p>
         </div>
     </div>
 
-    <div class="bg-white border-2 border-gray-200 text-black w-16 shadow-lg shadow-gray-200 rounded-lg rounded-r-none absolute top-[8rem] right-0 h-[42vh]">
+    <div
+        class="bg-white border-2 border-gray-200 text-black w-16 shadow-lg shadow-gray-200 rounded-lg rounded-r-none absolute top-[8rem] right-0 h-[42vh]">
         <div class="bg-black h-full w-2/4 rounded-lg rounded-r-none flex flex-col">
             <i class="material-icons text-white font-semibold px-1 py-1">close</i>
             <ol class="text-white text-sm pl-3 pr-2">
