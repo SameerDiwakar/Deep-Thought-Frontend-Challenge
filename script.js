@@ -31,7 +31,7 @@ async function fetchAndRenderAssets() {
         assets.forEach((asset, index) => {
           if (index < listItems.length) {
             const listItem = listItems[index].querySelector("a");
-            listItem.textContent = asset.asset_title; 
+            listItem.textContent = asset.asset_title;
           }
         });
         const assetElement = document.createElement("div");
@@ -39,9 +39,11 @@ async function fetchAndRenderAssets() {
           "asset shadow-gray-300 shadow-md rounded-lg h-[35rem]";
 
         assetElement.innerHTML = `
-          <div class="title p-2 text-center bg-black text-white font-semibold rounded-t-lg">
-              ${asset.asset_title}
-          </div>
+          <div class="title p-2 text-center bg-black text-white font-semibold rounded-t-lg flex items-center">
+         <span class="flex-grow text-center">${asset.asset_title}</span>
+          <i class="material-icons ml-5 text-white bg-black rounded-full text-md">info</i>
+         </div>
+
           <div class="description mt-2 p-2">
               <span class="font-semibold">Description:</span> ${
                 asset.asset_description
@@ -59,7 +61,6 @@ async function fetchAndRenderAssets() {
     console.error("Error fetching assets:", error);
   }
 }
-
 
 function getContent(asset) {
   if (asset.asset_content_type === "video") {
@@ -117,7 +118,7 @@ function getContent(asset) {
            <div class="intro mt-2 border-t-[2px] border-[#F0F0F0]">
         <div class="subline border-b-2 rounded-sm border-[#F0F0F0] mx-3">
             <div class="flex gap-3 items-center  bg-[#F0F0F0]">
-                <i class="material-icons p-1 font-semibold">keyboard_arrow_up</i>
+                <i class="material-icons p-1 font-semibold cursor-pointer">keyboard_arrow_up</i>
                 <h2 class="font-bold p-2">Introduction</h2>
             </div>
             <div class="input-area flex flex-col items-end">
@@ -127,7 +128,7 @@ function getContent(asset) {
         </div>
         <div class="subline rounded-sm mx-3">
             <div class="flex gap-3 items-center border-b-2 border-[#F0F0F0]">
-                <i class="material-icons p-1 font-semibold">keyboard_arrow_up</i>
+                <i class="material-icons p-1 font-semibold cursor-pointer">keyboard_arrow_up</i>
                 <h2 class="font-bold p-2 ">Thread A</h2>
             </div>
             <div class="input-area flex flex-col items-end">
@@ -146,7 +147,7 @@ function getContent(asset) {
     return `
             <div class="thread mt-2 border-t-[3px] border-[#F0F0F0]">
         <div class="subline flex gap-6 my-1 items-center border-b-2 rounded-sm border-[#F0F0F0]">
-            <i class="material-icons p-1 font-semibold">keyboard_arrow_up</i>
+            <i class="material-icons tarw p-1 font-semibold cursor-pointer">keyboard_arrow_up</i>
             <h2 class="font-bold p-2">Thread A</h2>
         </div>
         <div class="subs flex items-start justify-between mt-8 mx-2">
@@ -183,8 +184,8 @@ function getContent(asset) {
                 </div>
             </div>
         </div>
-        <div class="b-asset mt-2 mx-5">
-            <button class="px-3 py-2 text-sm text-white rounded-2xl bg-[#0029FF] ">+ Sub Thread</button>
+        <div class="b-asset mt-2 mx-5 flex flex-col">
+            <button class="px-3 py-2 text-sm w-1/4 text-white rounded-2xl bg-[#0029FF] ">+ Sub Thread</button>
             <div class="sub-t2 bg-[#F0F0F0] rounded-xl p-1 mt-2 shadow-gray-200 shadow-md">
                 <h2 class="p-1">Summary for thread 1</h2>
                 <input
@@ -216,5 +217,30 @@ toggleButton.addEventListener("click", () => {
   } else {
     sidebar.classList.add("collapsed");
     arrowIcon.textContent = "arrow_forward";
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("material-icons")) {
+    const arrow = event.target;
+    const thread = arrow.closest(".thread");
+    if (thread) {
+      const subs = thread.querySelector(".subs");
+      const bAsset = thread.querySelector(".b-asset");
+      const elementsToToggle = [subs, bAsset];
+      const isVisible = subs?.classList.contains("flex");
+      elementsToToggle.forEach((element) => {
+        if (element) {
+          if (isVisible) {
+            element.classList.add("hidden");
+            element.classList.remove("flex");
+          } else {
+            element.classList.remove("hidden");
+            element.classList.add("flex");
+          }
+        }
+      });
+      arrow.textContent = isVisible ? "keyboard_arrow_down" : "keyboard_arrow_up";
+    }
   }
 });
