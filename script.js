@@ -118,20 +118,20 @@ function getContent(asset) {
            <div class="intro mt-2 border-t-[2px] border-[#F0F0F0]">
         <div class="subline border-b-2 rounded-sm border-[#F0F0F0] mx-3">
             <div class="flex gap-3 items-center  bg-[#F0F0F0]">
-                <i class="material-icons p-1 font-semibold cursor-pointer">keyboard_arrow_up</i>
+                <i class="material-icons intro-arw p-1 font-semibold cursor-pointer">keyboard_arrow_up</i>
                 <h2 class="font-bold p-2">Introduction</h2>
             </div>
-            <div class="input-area flex flex-col items-end">
+            <div class="input-area intro-area flex flex-col items-end">
                 <input type="text" class="outline-none h-20 w-full px-3">
                 <a href="#" class="text-left block p-2 text-sm font-semibold">See More</a>
             </div>
         </div>
         <div class="subline rounded-sm mx-3">
             <div class="flex gap-3 items-center border-b-2 border-[#F0F0F0]">
-                <i class="material-icons p-1 font-semibold cursor-pointer">keyboard_arrow_up</i>
+                <i class="material-icons thread-arw p-1 font-semibold cursor-pointer">keyboard_arrow_up</i>
                 <h2 class="font-bold p-2 ">Thread A</h2>
             </div>
-            <div class="input-area flex flex-col items-end">
+            <div class="input-area thread-area flex flex-col items-end">
                 <input type="text" class="outline-none h-20 w-full px-3">
                 <a href="#" class="text-left block p-2 text-sm font-semibold">See More</a>
                 <div class="eg flex flex-col w-full pl-6">
@@ -241,6 +241,34 @@ document.addEventListener("click", (event) => {
         }
       });
       arrow.textContent = isVisible ? "keyboard_arrow_down" : "keyboard_arrow_up";
+    }
+  }
+});
+
+document.getElementById('closeIcon').addEventListener('click', function () {
+  const section = document.getElementById('notice');
+  section.style.display = 'none';
+});
+
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("material-icons")) {
+    const arrow = event.target;
+    let areaClass;
+    
+    if (arrow.classList.contains("intro-arw")) {
+      areaClass = "intro-area";
+    } else if (arrow.classList.contains("thread-arw")) {
+      areaClass = "thread-area";
+    }
+
+    if (areaClass) {
+      const area = arrow.closest(".subline").querySelector(`.${areaClass}`);
+      if (area) {
+        const isVisible = area.classList.contains("flex");
+        area.classList.toggle("hidden", isVisible);
+        area.classList.toggle("flex", !isVisible);
+        arrow.textContent = isVisible ? "keyboard_arrow_down" : "keyboard_arrow_up";
+      }
     }
   }
 });
